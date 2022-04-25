@@ -30,9 +30,9 @@ var Stack = function() {
     };
 
 }
+// END - Stack
 
 // Set - no duplicates
-
 function mySet() {
     var collection = [];
 
@@ -91,4 +91,54 @@ function mySet() {
         });
         return intersectionSet;
     }
+
+    this.difference = function(otherSet) {
+        var differenceSet = new mySet();
+        var firstSet = this.values();
+        firstSet.forEach(function(e) {
+            if(!otherSet.has(e)) {
+                differenceSet.add(e);
+            }
+        });
+    };
+
+
+    // Test if a set is a subset of another set
+    this.subset = function(otherSet) {
+        var firstSet = this.values();
+        return firstSet.every(function(value) {
+            return otherSet.has(value);
+        });
+    }
 }
+// END - Sets
+
+// START - Queue
+function Queue() {
+    collection = [];
+    
+    this.print = function() {
+        console.log(collection);
+    };
+
+    this.enqueue = function(element) {
+        collection.push(element);
+    };
+
+    this.dequeue = function() {
+        return collection.shift();
+    };
+
+    this.front = function() {
+        return collection[0];
+    };
+
+    this.size = function() {
+        return collection.length;
+    };
+
+    this.isEmpty() {
+        return (collection.length === 0);
+    }
+}
+// END - Queue
